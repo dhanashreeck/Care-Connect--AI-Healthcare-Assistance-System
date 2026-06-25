@@ -1,0 +1,72 @@
+### Health Check
+GET http://127.0.0.1:5000/health
+
+
+### Get Doctor Slots
+GET http://127.0.0.1:5000/doctor-slots/137
+
+
+### Book Appointment (NEW)
+POST http://127.0.0.1:5000/book-appointment
+Content-Type: application/json
+
+{
+  "patient_id": 1,
+  "availability_id": 808
+}
+
+### Analyze Prescription
+POST http://127.0.0.1:5000/analyze-prescription
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="prescription.jpg"
+Content-Type: image/jpeg
+
+< ./prescription.jpg
+--boundary--
+
+### Register Patient
+POST http://127.0.0.1:5000/register
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@gmail.com",
+  "password": "123"
+}
+
+### Login Patient
+POST http://127.0.0.1:5000/login
+Content-Type: application/json
+
+{
+  "email": "test@gmail.com",
+  "password": "123"
+}
+
+### Doctor Login
+POST http://127.0.0.1:5000/login/doctor
+Content-Type: application/json
+
+{
+  "email": "doctor@gmail.com",
+  "password": "123"
+}
+
+### Admin Login
+POST http://127.0.0.1:5000/login/admin
+Content-Type: application/json
+
+{
+  "email": "admin@care.com",
+  "password": "admin123"
+}
+
+### Cancel Appointment
+POST http://127.0.0.1:5000/cancel-appointment
+Content-Type: application/json
+
+{
+  "appointment_id": 19
+}
